@@ -25,8 +25,10 @@
 
 // src/swagger.ts
 
+import dotenv from 'dotenv'
+dotenv.config()
 import swaggerJSDoc from 'swagger-jsdoc';  // Use the default import (not the * import)
-
+console.log(process.env.SWAGGER_URL)
 const options: any = {  // Use `any` here for the options type
   definition: {
     openapi: '3.0.0', // OpenAPI version
@@ -37,7 +39,7 @@ const options: any = {  // Use `any` here for the options type
     },
     servers: [
       {
-        url: 'http://localhost:4000', // Change as needed
+        url: process.env.SWAGGER_URL 
       },
     ],
   },
